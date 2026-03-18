@@ -3,10 +3,6 @@ venv/
 __pycache__/
 *.pyc
 
-# Model & hasil training
-*.pkl
-*.joblib
-
 # Notebook checkpoint
 .ipynb_checkpoints/
 
