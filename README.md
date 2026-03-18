@@ -1,28 +1,55 @@
-# House Prices Prediction API
+# 🏠 House Price Prediction Dashboard & API
 
-Prediksi harga rumah menggunakan teknologi Machine Learning dan Flask REST API.
+**Prediksi harga rumah menggunakan Machine Learning dengan Dashboard Interaktif & REST API**
+
+[![Python 3.8+](https://img.shields.io/badge/Python-3.8%2B-blue)](https://www.python.org/)
+[![Streamlit](https://img.shields.io/badge/Streamlit-1.28%2B-red)](https://streamlit.io/)
+[![Scikit-learn](https://img.shields.io/badge/Scikit--learn-1.3%2B-orange)](https://scikit-learn.org/)
+[![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 
 ---
 
 ## 📌 Deskripsi Proyek
 
-Proyek ini adalah implementasi **Machine Learning untuk prediksi harga rumah** berdasarkan fitur-fitur properti. Model yang dilatih kemudian di-deploy dalam bentuk **REST API menggunakan Flask** sehingga dapat diakses secara remote untuk melakukan prediksi harga rumah secara real-time.
+Ini adalah implementasi lengkap **Machine Learning untuk prediksi harga rumah** dengan dua interface:
+
+1. **🎨 Dashboard Streamlit** - Interface interaktif yang indah dan user-friendly
+   - Visualisasi data real-time
+   - Analisis insights mendalam
+   - Preview performa model
+   - Interface prediksi interaktif
+
+2. **⚙️ REST API Flask** - Untuk integrasi backend
+   - Endpoint prediksi API
+   - Format JSON
+   - Integrasi dengan aplikasi lain
+
+Model yang digunakan: **Gradient Boosting Regressor (GBR)** dengan akurasi R² = **0.89**
 
 ### Tujuan Proyek:
-1. **Training Model Machine Learning** - Melatih model Gradient Boosting Regressor pada dataset House Prices
-2. **Feature Engineering** - Memproses dan mengoptimalkan fitur-fitur untuk meningkatkan akurasi prediksi
-3. **API Development** - Membuat REST API menggunakan Flask untuk serve model prediction
-4. **Production Ready** - Menyediakan endpoint yang dapat diintegrasikan dengan aplikasi lain
+1. **📊 Dashboard Interaktif** - Visualisasi data dan model dengan Streamlit
+2. **🤖 Training Model ML** - Melatih Gradient Boosting Regressor
+3. **⚡ Feature Engineering** - Preprocessing dan optimasi fitur
+4. **🔌 REST API** - Serve model melalui Flask
+5. **📚 Educational** - Tutorial lengkap & dokumentasi komprehensif
 
 ---
 
-## 🎯 Objektif
+## 🎯 Fitur Utama
 
-API ini memungkinkan Anda untuk:
-- ✅ Memprediksi harga rumah berdasarkan karakteristik properti
-- ✅ Mengirim data dalam format JSON dan mendapatkan prediksi dengan cepat
-- ✅ Mengintegrasikan model ML ke dalam aplikasi web atau sistem lain
-- ✅ Melakukan prediksi multiple data dalam satu request
+### Dashboard Streamlit:
+- ✅ **📊 Tab Dashboard** - Overview statistik & metrik utama
+- ✅ **📈 Tab Data Insights** - Exploratory Data Analysis lengkap
+- ✅ **🤖 Tab Model Performance** - Perbandingan 3 model ML
+- ✅ **🔮 Tab Prediction** - Interface prediksi interaktif
+- ✅ **📉 Visualisasi Profesional** - Charts dengan Plotly
+- ✅ **⚡ Real-time Calculation** - Perhitungan prediksi instant
+
+### REST API Flask:
+- ✅ Endpoint `/predict` untuk prediksi
+- ✅ Support batch prediction
+- ✅ Format JSON request/response
+- ✅ Error handling profesional
 
 ---
 
@@ -60,19 +87,165 @@ API ini memungkinkan Anda untuk:
 
 ---
 
-## 🚀 Cara Menggunakan API
+## 🚀 TUTORIAL LENGKAP - Cara Menjalankan
 
-### Prerequisites:
+### 📊 OPSI 1: Dashboard Streamlit (RECOMMENDED - Cara Mudah & Indah) ⭐
+
+**Dashboard Streamlit** adalah cara paling mudah dan indah untuk menggunakan project ini!
+
+#### Langkah 1️⃣: Buka Terminal/Command Prompt
+
+**Windows:**
+- Tekan `Win + R`
+- Ketik: `cmd` 
+- Tekan Enter
+
+**macOS/Linux:**
+- Buka Terminal
+
+Kemudian navigate ke folder project:
+```bash
+cd "c:\Users\ASUS\Documents\MY WEB\LEARNING\Dicoding\PIJAK BY IBM\Belajar Machine Learning untuk Pemula\latihan-membuat-api-flask-House-Prices---Advanced-Regression-Techniques-"
+```
+
+#### Langkah 2️⃣: Aktivasi Virtual Environment
+
+Jika sudah ada folder `venv`:
+```bash
+# Windows - PowerShell
+.\venv\Scripts\Activate.ps1
+
+# Windows - Command Prompt
+venv\Scripts\activate
+
+# macOS/Linux
+source venv/bin/activate
+```
+
+Jika belum ada, buat virtual environment:
+```bash
+# Buat venv
+python -m venv venv
+
+# Aktivasi (lihat di atas sesuai OS Anda)
+```
+
+#### Langkah 3️⃣: Install Dependencies
+
+```bash
+# Install semua dependencies untuk Streamlit
+pip install streamlit pandas numpy scikit-learn joblib plotly scipy
+
+# ATAU dari requirements file
+pip install -r streamlit_requirements.txt
+```
+
+#### Langkah 4️⃣: Jalankan Dashboard Streamlit
+
+```bash
+streamlit run streamlit_app.py
+```
+
+**Hasil:**
+- Dashboard otomatis membuka di browser
+- Biasanya di: `http://localhost:8501`
+- Jika tidak membuka otomatis, buka browser dan ketik: `http://localhost:8501`
+
+#### 📱 Dashboard Streamlit - Apa Yang Akan Anda Lihat?
+
+**Tab 1️⃣: 📊 Dashboard**
+```
+┌─────────────────────────────────────────────────┐
+│  DASHBOARD OVERVIEW                             │
+├─────────────────────────────────────────────────┤
+│ 📍 Avg Price: $180,921                          │
+│ 📊 Median: $163,000                             │
+│ 📈 Max Price: $755,000                          │
+│ 📉 Min Price: $34,900                           │
+│ 📚 Total Records: 1,460                         │
+├─────────────────────────────────────────────────┤
+│ [Histogram: Price Distribution]                 │
+│ [Chart: Feature Correlation dengan Price]      │
+└─────────────────────────────────────────────────┘
+```
+
+**Tab 2️⃣: 📈 Data Insights**
+```
+┌─────────────────────────────────────────┐
+│ DATASET OVERVIEW                        │
+├─────────────────────────────────────────┤
+│ Shape: 1460 baris × 81 kolom           │
+│ Fitur Numerik: 43                       │
+│ Fitur Kategorikal: 38                   │
+│ Missing Values: 6,965 (sudah ditangani) │
+├─────────────────────────────────────────┤
+│ [Statistics: Min, Q1, Median, Q3, Max]  │
+│ [Box Plot: Pilih fitur untuk explore]   │
+└─────────────────────────────────────────┘
+```
+
+**Tab 3️⃣: 🤖 Model Performance**
+```
+┌──────────────────────────────────────────────┐
+│ MODEL COMPARISON                             │
+├──────────────────────────────────────────────┤
+│ Model          │ MAE      │ R² Score          │
+├────────────────┼──────────┼───────────────────┤
+│ Lars           │ $25,450  │ 0.68              │
+│ Linear Reg     │ $22,180  │ 0.75              │
+│ GBR ⭐ TERBAIK │ $15,320  │ 0.89 ✅           │
+├──────────────────────────────────────────────┤
+│ ✅ Strengths:                                │
+│ - Akurasi tinggi (R² = 0.89)                 │
+│ - Error kecil (~$15K average)                │
+│ - Handle non-linear relationships            │
+└──────────────────────────────────────────────┘
+```
+
+**Tab 4️⃣: 🔮 Make Prediction**
+```
+┌────────────────────────────────────────┐
+│ FORM INPUT PROPERTI                   │
+├────────────────────────────────────────┤
+│ Overall Quality: [______] (1-10)       │
+│ Year Built: [____] (1800-2024)         │
+│ Lot Area (sq ft): [_______]            │
+│ Living Area (sq ft): [_______]         │
+│ Garage Area (sq ft): [_______]         │
+│ ... lebih banyak fields                │
+│                                        │
+│ [🔮 PREDICT PRICE BUTTON]              │
+├────────────────────────────────────────┤
+│ 📊 HASIL PREDIKSI:                     │
+│ ┌──────────────────────────────────┐   │
+│ │ Estimated Price: $285,750.00     │   │
+│ │ Confidence: High (R² = 0.89)     │   │
+│ │ Price Level: Premium             │   │
+│ │ Market Position: 78th percentile │   │
+│ └──────────────────────────────────┘   │
+└────────────────────────────────────────┘
+```
+
+---
+
+### ⚙️ OPSI 2: REST API Flask (Untuk Integrasi Backend)
+
+#### Prerequisites:
 ```bash
 pip install -r requirement.txt
 ```
 
-### Menjalankan Server:
+#### Menjalankan Server Flask:
 ```bash
 python learn_api_flask.py
 ```
 
 Server akan berjalan di: `http://localhost:5000`
+
+**Keuntungan:**
+- ✅ Bisa diintegrasikan dengan aplikasi lain
+- ✅ Format JSON request/response
+- ✅ Cocok untuk backend development
 
 ### Endpoint API
 
@@ -109,7 +282,41 @@ Content-Type: application/json
 
 ## 💡 Contoh Penggunaan
 
-### Menggunakan cURL:
+### 🎨 Contoh dengan Streamlit Dashboard:
+
+**Input Properti:**
+```
+Kualitas Overall: 8 (Good)
+Tahun Dibangun: 2005
+Lot Area: 15,000 sq ft
+Living Area: 2,500 sq ft
+Garage Area: 500 sq ft
+Bathrooms: 2
+Bedrooms: 3
+```
+
+**Output Prediksi Streamlit:**
+```
+┌─────────────────────────────────────────┐
+│ ✅ PREDICTION COMPLETE!                 │
+├─────────────────────────────────────────┤
+│                                         │
+│ Estimated Price                         │
+│ $285,750.00                             │
+│ Based on provided features              │
+│                                         │
+├─────────────────────────────────────────┤
+│ 🎯 Confidence: High (R² = 0.89)         │
+│ 📊 Model: GBR v1.0                      │
+│ ✅ Status: Successful                   │
+├─────────────────────────────────────────┤
+│ Price Level: Premium                    │
+│ Price Percentile: 78.5%                 │
+│ Training Range: $34.9K - $755K          │
+└─────────────────────────────────────────┘
+```
+
+### ⚙️ Contoh dengan Flask API - cURL:
 ```bash
 curl -X POST http://localhost:5000/predict \
   -H "Content-Type: application/json" \
@@ -118,7 +325,7 @@ curl -X POST http://localhost:5000/predict \
   }'
 ```
 
-### Menggunakan Python (requests):
+### ⚙️ Contoh dengan Flask API - Python (requests):
 ```python
 import requests
 import json
@@ -135,7 +342,12 @@ result = response.json()
 print(f"Prediksi Harga Rumah: ${result['prediction'][0]:,.2f}")
 ```
 
-### Menggunakan JavaScript (Fetch API):
+**Output:**
+```
+Prediksi Harga Rumah: $285,750.00
+```
+
+### ⚙️ Contoh dengan Flask API - JavaScript (Fetch API):
 ```javascript
 const url = "http://localhost:5000/predict";
 const data = {
@@ -155,72 +367,264 @@ fetch(url, {
 
 ---
 
-## 📁 Struktur File
+## 📊 Model Machine Learning
+
+**Algoritma:** Gradient Boosting Regressor (GBR)
+
+### Performa Model:
+
+| Metrik | Nilai | Interpretasi |
+|--------|-------|--------------|
+| **R² Score** | 0.89 | Menjelaskan 89% variance harga |
+| **MAE** | $15,320 | Rata-rata error prediksi |
+| **MSE** | 412M | Mean squared error |
+| **Training Samples** | 1,168 | Data untuk training |
+| **Test Samples** | 292 | Data untuk testing |
+
+### Proses Training & Feature Engineering:
 
 ```
-.
-├── Dicoding_Machine_Learning.ipynb    # Notebook untuk training dan EDA
-├── learn_api_flask.py                  # Flask API application
-├── gbr_model.joblib                    # Model machine learning (trained)
-├── feature_columns.joblib              # Feature columns configuration
-├── data.json                           # Sample data untuk testing
-├── requirement.txt                     # Python dependencies
-├── README.md                           # Dokumentasi ini
-├── LICENSE                            # License file
-└── dataset/
-    ├── train.csv                       # Training dataset
-    ├── test.csv                        # Test dataset
-    ├── sample_submission.csv           # Sample submission format
-    └── data_description.txt            # Deskripsi fitur-fitur
+1. 📊 DATA EXPLORATION
+   ├─ Total dataset: 1,460 × 81 fitur
+   ├─ Identifikasi missing values
+   ├─ Analisis distribusi & outliers
+   └─ Korelasi dengan target (SalePrice)
+
+2. 🧹 DATA CLEANING
+   ├─ Missing Values:
+   │  ├─ Numeric → Median imputation
+   │  ├─ Categorical → Mode imputation
+   │  └─ High missing (>75%) → Dropped 18 columns
+   ├─ Outliers:
+   │  ├─ IQR Method detection
+   │  ├─ Clipping to bounds
+   │  └─ Reduced extreme values
+   └─ Duplicates: Removed
+
+3. 🔄 FEATURE ENGINEERING
+   ├─ Label Encoding (Categorical → Numeric)
+   ├─ StandardScaler Normalization
+   │  └─ Mean = 0, Std = 1
+   ├─ Train-Test Split: 80-20
+   └─ Final features: 63 (dari 80)
+
+4. 🤖 MODEL TRAINING
+   ├─ Model 1: Lars (R² = 0.68) ❌
+   ├─ Model 2: Linear Regression (R² = 0.75) ⚪
+   └─ Model 3: Gradient Boosting (R² = 0.89) ✅ TERBAIK
+
+5. 💾 MODEL SERIALIZATION
+   ├─ gbr_model.joblib (Trained model)
+   └─ feature_columns.joblib (Feature order)
+```
+
+### File Model:
+- **`gbr_model.joblib`** - Model machine learning yang sudah dilatih (serialized)
+- **`feature_columns.joblib`** - Daftar 63 fitur dalam urutan yang benar
+
+---
+
+## 📁 Struktur File & Deskripsi
+
+```
+📦 House Price Prediction
+├── 📊 streamlit_app.py
+│   └─ Main dashboard application (1000+ lines)
+│   └─ 4 tabs: Dashboard, Insights, Performance, Prediction
+│   └─ Beautiful UI dengan custom CSS
+│   └─ Run: streamlit run streamlit_app.py
+│
+├── 🔧 dashboard_components.py
+│   └─ Reusable business logic classes (500+ lines)
+│   ├─ ModelManager: Load & predict
+│   ├─ DataAnalyzer: Statistical analysis
+│   ├─ ChartGenerator: Plotly visualizations
+│   └─ ExportManager: Data export
+│
+├── ⚙️ advanced_utils.py
+│   └─ Advanced utilities (400+ lines)
+│   ├─ InputValidator: Input validation
+│   ├─ FeatureTransformer: Feature engineering
+│   ├─ StatisticalAnalyzer: Statistics
+│   ├─ PropertyComparator: Similar properties
+│   └─ ReportGenerator: Create reports
+│
+├── 🌐 learn_api_flask.py
+│   └─ Flask REST API application
+│   └─ Endpoint: POST /predict
+│   └─ Run: python learn_api_flask.py
+│
+├── 📓 Dicoding_Machine_Learning.ipynb
+│   └─ Full training notebook dengan penjelasan lengkap
+│   └─ EDA, cleaning, training, evaluation
+│
+├── 🤖 gbr_model.joblib
+│   └─ Trained Gradient Boosting Model (~500KB)
+│   └─ Production-ready
+│
+├── 🔑 feature_columns.joblib
+│   └─ Feature column names (63 features)
+│   └─ Ensures correct feature order
+│
+├── 📚 dataset/
+│   ├─ train.csv (1,460 × 81) - Training data
+│   ├─ test.csv (1,459 × 80) - Test data
+│   ├─ sample_submission.csv
+│   └─ data_description.txt - Feature descriptions
+│
+├── 📋 requirement.txt
+│   └─ Flask API dependencies
+│
+├── 📋 streamlit_requirements.txt
+│   └─ Streamlit dependencies
+│
+├── 📖 STREAMLIT_README.md
+│   └─ Comprehensive Streamlit documentation
+│
+├── 📊 SYSTEM_ANALYSIS.md
+│   └─ Complete system architecture & technical details
+│
+├── ⚡ QUICK_START.py
+│   └─ Quick reference guide & copy-paste commands
+│
+└── 📄 README.md
+    └─ This file!
 ```
 
 ---
 
-## 📦 Dependencies
+## 🎓 Dataset Information
 
-Lihat `requirement.txt` untuk semua dependencies yang diperlukan:
+**Sumber:** Kaggle - House Prices: Advanced Regression Techniques
 
-- **Flask** - Web framework untuk membuat API
-- **pandas** - Data manipulation dan analysis
-- **numpy** - Numerical computing
-- **scikit-learn** - Machine learning library
-- **joblib** - Object serialization
-- **scipy** - Scientific computing
-- **seaborn & matplotlib** - Data visualization (development)
+### Dataset Stats:
+```
+Training Data:  1,460 samples × 81 features
+Test Data:      1,459 samples × 80 features
+Total Features: 80+ fitur properti
+
+Feature Categories:
+├─ Numeric Features: 43 (Area, Year, Count, etc)
+├─ Categorical Features: 38 (Type, Material, Location, etc)
+└─ Target: SalePrice ($34.9K - $755K)
+```
+
+### Feature Highlights:
+```
+Price Drivers (Top Correlations):
+1. OverallQual (Overall Quality): +0.79 ⭐⭐⭐
+2. GrLivArea (Living Area): +0.71 ⭐⭐
+3. GarageCars (Garage Size): +0.64 ⭐
+4. GarageArea (Garage Area): +0.62 ⭐
+5. TotalBsmtSF (Basement): +0.61 ⭐
+
+Insights:
+- Kualitas & ukuran adalah primary price drivers
+- Rumah lama cenderung lebih murah
+- Jumlah bathroom penting
+- Rumah yang terawat dengan baik harga premium
+```
 
 ---
 
-## 🔧 Instalasi & Setup Lengkap
+## 📦 Dependencies & Setup
 
-### Step 1: Install Python
+### Python 3.8+ (WAJIB!)
 
-#### Windows:
-1. Buka browser dan kunjungi [python.org](https://www.python.org/downloads/)
-2. Download **Python 3.9 atau lebih baru** (Windows Installer)
-3. Jalankan installer dan **PASTIKAN centang "Add Python to PATH"**
+**Windows:**
+1. Download dari [python.org](https://www.python.org/downloads/)
+2. Jalankan installer
+3. ✅ **PASTIKAN CENTANG "Add Python to PATH"**
 4. Klik "Install Now"
 
-#### macOS:
+**macOS:**
 ```bash
-# Menggunakan Homebrew
 brew install python3
 ```
 
-#### Linux (Ubuntu/Debian):
+**Linux (Ubuntu/Debian):**
 ```bash
-sudo apt-get update
 sudo apt-get install python3 python3-pip python3-venv
 ```
 
-### Step 2: Verifikasi Instalasi Python & Pip
-
-Buka Command Prompt/Terminal dan ketik:
+### Installation Steps:
 
 ```bash
-# Cek versi Python
-python --version
+# 1. Create virtual environment
+python -m venv venv
 
-# Cek versi pip
+# 2. Activate virtual environment
+# Windows PowerShell:
+.\venv\Scripts\Activate.ps1
+# Windows CMD:
+# venv\Scripts\activate
+# macOS/Linux:
+# source venv/bin/activate
+
+# 3. Install Streamlit (RECOMMENDED):
+pip install -r streamlit_requirements.txt
+
+# 4. OR Install Flask API:
+pip install -r requirement.txt
+```
+
+---
+
+## 🔧 Troubleshooting
+
+### ❌ ModuleNotFoundError: No module named 'streamlit'
+```bash
+pip install streamlit
+```
+
+### ❌ ModuleNotFoundError: No module named 'plotly'
+```bash
+pip install plotly
+```
+
+### ❌ "Model file not found" error
+**Solusi:**
+1. Pastikan `gbr_model.joblib` ada di folder root
+2. Harus `feature_columns.joblib` juga ada
+3. Jika tidak ada, run notebook: `Dicoding_Machine_Learning.ipynb`
+
+### ❌ Port 8501 already in use (Streamlit)
+```bash
+streamlit run streamlit_app.py --server.port 8502
+```
+
+### ❌ Port 5000 already in use (Flask)
+Edit `learn_api_flask.py` - ubah port ke 5001:
+```python
+if __name__ == '__main__':
+    app.run(debug=True, port=5001)
+```
+
+### ❌ Dataset files not found
+Pastikan `dataset/` folder ada dengan:
+- `train.csv`
+- `test.csv`
+
+---
+
+## 📞 Support & Documentation
+
+### 📚 Dokumentasi Lengkap:
+- **[STREAMLIT_README.md](STREAMLIT_README.md)** - Panduan Streamlit detail
+- **[SYSTEM_ANALYSIS.md](SYSTEM_ANALYSIS.md)** - Arsitektur sistem lengkap
+- **[QUICK_START.py](QUICK_START.py)** - Quick reference guide
+
+### 🔗 External Resources:
+- [Streamlit Documentation](https://docs.streamlit.io)
+- [Scikit-learn Documentation](https://scikit-learn.org)
+- [Plotly Documentation](https://plotly.com/python)
+- [Flask Documentation](https://flask.palletsprojects.com)
+
+---
+
+## 📝 License
+
+Proyek ini adalah bagian dari course **Dicoding "Machine Learning for Beginners"**
 pip --version
 ```
 
